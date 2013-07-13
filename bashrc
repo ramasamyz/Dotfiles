@@ -126,3 +126,4 @@ alias chknet='ping 8.8.8.8'
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 alias rails_s_s='mpr && cd song_depot && rails s'
+alias redshift='gtk-redshift -l 18.490029:73.872070 > /dev/null 2>&1 &'

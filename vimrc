@@ -1,7 +1,10 @@
 set nocompatible
 
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+"call pathogen#runtime_append_all_bundles()
+"call pathogen#helptags()
 
 syntax enable
 set background=dark
@@ -46,3 +49,25 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
 
+ " let Vundle manage Vundle
+ " required! 
+Bundle 'gmarik/vundle'
+
+
+
+ " My Bundles here:
+ "
+ " original repos on github
+   Bundle 'tpope/vim-fugitive'
+   Bundle 'Lokaltog/vim-easymotion'
+ " Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+   Bundle 'tpope/vim-rails.git'
+   Bundle 'scrooloose/nerdtree'
+ " vim-scripts repos
+ " Bundle 'L9'
+ " Bundle 'FuzzyFinder'
+ " non github repos
+ " Bundle 'git://git.wincent.com/command-t.git'
+ " ...
+
+ " Bundle 'Valloric/YouCompleteMe.git'
