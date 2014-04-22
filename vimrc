@@ -71,3 +71,5 @@ Bundle 'gmarik/vundle'
  " ...
 
  " Bundle 'Valloric/YouCompleteMe.git'
+ 
+ au BufNewFile *.c r ~/.vim/startingC.c
