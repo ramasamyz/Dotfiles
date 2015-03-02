@@ -1,5 +1,10 @@
 set nocompatible
 
+if $TERM == "xterm-256color" || $TERM == "screen-256color" || $COLORTERM == "gnome-terminal"
+    set t_Co=256
+endif
+
+
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
@@ -47,11 +52,23 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+nnoremap j gj
+nnoremap k gk
+
+
+nmap \i :set paste!<cr>
+
+nmap \n :set nu!<cr>
+
+nmap \q :nohlsearch<CR>
+
+nmap \t :NERDTreeToggle<CR>
+
 
 
  " let Vundle manage Vundle
  " required! 
-Bundle 'gmarik/vundle'
+   Bundle 'gmarik/vundle'
 
 
 
@@ -62,6 +79,7 @@ Bundle 'gmarik/vundle'
    Bundle 'Lokaltog/vim-easymotion'
  " Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
    Bundle 'tpope/vim-rails.git'
+   Bundle 'vim-scripts/taglist.vim'
    Bundle 'scrooloose/nerdtree'
  " vim-scripts repos
  " Bundle 'L9'
@@ -72,4 +90,35 @@ Bundle 'gmarik/vundle'
 
  " Bundle 'Valloric/YouCompleteMe.git'
  
+
+ colorscheme elflord
+
+ " Mark down support
+ " Create or edit file under cursor
+ Bundle 'plasticboy/vim-markdown'
+
+ nmap mf :tabe <cfile>.md<CR>
+
+
+ " File type association
+
+ autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+
+ " Autoclosing tags
+ "inoremap {      {}<Left>
+ "inoremap do      do<CR>end<ESC>O
+ "inoremap {<CR>  {<CR>}<Esc>O
+ "inoremap {{     {
+ "inoremap {}     {}
+
+ Bundle 'Townk/vim-autoclose'
+ " Programming Support
  au BufNewFile *.c r ~/.vim/startingC.c
+
+ Bundle 'scrooloose/syntastic'
+
+ 
+ " Da looks
+ Bundle 'Lokaltog/powerline'
+ Bundle 'adragomir/javacomplete'
+
