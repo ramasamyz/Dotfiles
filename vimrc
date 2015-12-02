@@ -1,15 +1,48 @@
 set nocompatible
+filetype off
 
 if $TERM == "xterm-256color" || $TERM == "screen-256color" || $COLORTERM == "gnome-terminal"
     set t_Co=256
 endif
 
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+ " let Vundle manage Vundle
+ " required! 
+   Plugin 'VundleVim/Vundle.vim'
 
-"call pathogen#runtime_append_all_bundles()
-"call pathogen#helptags()
+
+
+ " My Plugins here:
+ "
+ " original repos on github
+   Plugin 'tpope/vim-fugitive'
+   Plugin 'Lokaltog/vim-easymotion'
+ " Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+   Plugin 'tpope/vim-rails.git'
+   Plugin 'vim-scripts/taglist.vim'
+   Plugin 'scrooloose/nerdtree'
+   Plugin 'scrooloose/syntastic'
+   Plugin 'Townk/vim-autoclose'
+
+ 
+ " Da looks
+   Plugin 'Lokaltog/powerline'
+   Plugin 'adragomir/javacomplete'
+ " vim-scripts repos
+ " Plugin 'L9'
+ " Plugin 'FuzzyFinder'
+ " non github repos
+ " Plugin 'git://git.wincent.com/command-t.git'
+ " ...
+
+ " Plugin 'Valloric/YouCompleteMe.git'
+ 
+
+call vundle#end()            " required
+" load the plugin and indent settings for the detected filetype
+filetype plugin indent on
 
 syntax enable
 set background=dark
@@ -24,8 +57,6 @@ set smartcase
 set backspace=indent,eol,start
 
 
-" load the plugin and indent settings for the detected filetype
-filetype plugin indent on
 
 " swp files are annoying. Let's hope vim doesn't crash
 set nobackup
@@ -66,36 +97,12 @@ nmap \t :NERDTreeToggle<CR>
 
 
 
- " let Vundle manage Vundle
- " required! 
-   Bundle 'gmarik/vundle'
-
-
-
- " My Bundles here:
- "
- " original repos on github
-   Bundle 'tpope/vim-fugitive'
-   Bundle 'Lokaltog/vim-easymotion'
- " Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-   Bundle 'tpope/vim-rails.git'
-   Bundle 'vim-scripts/taglist.vim'
-   Bundle 'scrooloose/nerdtree'
- " vim-scripts repos
- " Bundle 'L9'
- " Bundle 'FuzzyFinder'
- " non github repos
- " Bundle 'git://git.wincent.com/command-t.git'
- " ...
-
- " Bundle 'Valloric/YouCompleteMe.git'
- 
 
  colorscheme elflord
 
  " Mark down support
  " Create or edit file under cursor
- Bundle 'plasticboy/vim-markdown'
+ Plugin 'plasticboy/vim-markdown'
 
  nmap mf :tabe <cfile>.md<CR>
 
@@ -111,14 +118,6 @@ nmap \t :NERDTreeToggle<CR>
  "inoremap {{     {
  "inoremap {}     {}
 
- Bundle 'Townk/vim-autoclose'
  " Programming Support
  au BufNewFile *.c r ~/.vim/startingC.c
-
- Bundle 'scrooloose/syntastic'
-
- 
- " Da looks
- Bundle 'Lokaltog/powerline'
- Bundle 'adragomir/javacomplete'
 
